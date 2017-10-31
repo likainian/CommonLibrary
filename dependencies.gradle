@@ -1,0 +1,6 @@
+ext {
+  androidMinSdkVersion = 18
+  androidTargetSdkVersion = 26
+  androidCompileSdkVersion = 26
+  androidSupportVersion = '26.1.0'
+}
