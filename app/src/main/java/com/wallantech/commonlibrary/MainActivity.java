@@ -1,7 +1,10 @@
 package com.wallantech.commonlibrary;
 
+import android.content.pm.ApplicationInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.GsonBuilder;
@@ -18,13 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        JZVideoPlayerStandard jzVideoPlayerStandard = findViewById(R.id.videoplayer);
-        jzVideoPlayerStandard.setUp("https://wander.wallan-tech.com:1443/media-app/file/download/5a014bd661e29e7e8788d882"
-                , JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL, "饺子闭眼睛");
-//        jzVideoPlayerStandard.thumbImageView.setImage("http://p.qpic.cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640");
-        Glide.with(this).load("https://wander.wallan-tech.com:1443/media-app/file/download/5a014bd761e29e7e8788d8a4").into(jzVideoPlayerStandard.thumbImageView);
-
-
+        boolean debug = (getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+        Log.i("ttt", "onCreate: "+debug);
+        Toast.makeText(this, ""+debug, Toast.LENGTH_SHORT).show();
 
     }
 }
